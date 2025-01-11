@@ -17,4 +17,12 @@ Cypress.Commands.add('logout', () => {
   cy.get('.qa-user-avatar').click()
   cy.contains('Sign out').click()
 })
-  
+
+Cypress.Commands.add('createProject', (project, path, description) => {
+  cy.visit('/projects/new')
+
+  cy.get('#project_name').type(project)
+  cy.get('#project_path').type(path)
+  cy.get('#project_description').type(description)
+  cy.contains('Create project').click();
+})
